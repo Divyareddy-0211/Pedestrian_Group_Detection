@@ -41,4 +41,64 @@ import matplotlib.pyplot as plt
 data = pd.read_csv(r'C:\Users\sagar\Desktop\Project_Final_Group_4\test_eth_2.5fls.csv' )
 ```
 
+#### Here Loading the groups.txt file which has our ground truth values.(original groups)
+```
+with open('C:\\Users\\sagar\\Desktop\\Project_Final_Group_4\\groups.txt') as f:
+    lines = f.readlines()
+lines = [x.strip() for x in lines]
+lines = [x for x in lines if x]
+ground_truth = []
+for i in range(len(lines)):
+    ground_truth.append(lines[i].split(' '))
+    # convert to integer
+    ground_truth[i] = [int(x) for x in ground_truth[i]]
+```
 
+#### Taking the unique ids of the frames and agents for further analysis in the code
+```
+frame_id = data['frame_id'].unique()
+agent_ids = sorted(data['agent_id'].unique())
+```
+
+#### Here dropping the unuseful columns for our analysis
+```
+data = data.drop(columns=['label','scene_id','frame_id','vel_x', 'vel_y'])
+```
+
+#### pivoting the data here using timestamp as a index
+###### Here we are using timestamp as the index and columns as the agent_id and dividing the dataframe between pos_x and pos_y values for our further analysis
+###### and also putting the extreme values in the data where it is a null value and converting the whole data into an array
+```
+data = data.pivot(index = 'timestamp',columns='agent_id',values = ['pos_x','pos_y'])
+data = data.fillna(50) #etreme value
+X = np.array(data)
+```
+
+
+#### Collecting all points in one array
+###### Now y is in shape of two columns it has the pos_x and pos_y values of the agents which are drawn from the numpy array X
+```
+Y = []
+for i in range(X.shape[0]):
+    for j in range(X.shape[1]//2):
+        Y+=[[X[i,j],X[i,j+X.shape[1]//2]]]
+Y = np.array(Y)
+Y
+```
+
+
+####
+```
+
+```
+
+
+####
+```
+
+```
+
+####
+```
+
+```
