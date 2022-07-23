@@ -8,11 +8,14 @@
 * [IOU Plot](#Iou-plot)
 
 ## Project Overview
+
 In general, pedestrians prefer to walk together as a group on roads in a shared space. In our project, we have focused on the movement of a group member from one position to another. So we used a data set that has data collected from a particular university, which is attached in our project folder as' test_eth_2.5fls.csv'. This dataset consists of ETH walking pedestrian data and is used extensively for human trajectory prediction. The data set consists of four columns that are FRAME ID, AGENT ID, X-Position and Y-Position.
 
 Annotations were done at 2.5 fps with a timestamp of 0.4 seconds, and all the information about people walking in groups is stored in the groups.txt file. The destinations of people walking were assumed and the obstacles were reported. For the recordings, there was a fixed angle in the bird's eye view and the annotations were done manually. The number of trajectories that were recorded is 360. 
+In order to know the positions of the pedestrians, we used the DBSCAN(Density-based spatial clustering of applications through noise) algorithm, which gives us similar movement patterns of pedestrians. The DBSCAN algorithm is based on co-existing time and Euclidean distance, which helps in determining the distance between pedestrians and is also very efficient in finding high-density regions and outliers. Euclidean distance and co-existing time are two important parameters because they help us to know if two users belong to the same group or not. Key parameters in this algorithm are Eps(epsilon) and MinPts(minimum number of data points). Eps helps us to determine if the distance between 2 points is lower or equal to a particular value, and these points are considered neighbours. A minpoint is the minimum number of data points that are required to define a cluster.
 
-In order to know the positions of the pedestrians, we used the DBSCAN(Density-based spatial clustering of applications through noise) algorithm, which gives us similar movement patterns of pedestrians. The DBSCAN algorithm is based on co-existing time and Euclidean distance, which helps in determining the distance between pedestrians. Euclidean distance and co-existing time are two important parameters because they help us to know if two users belong to the same group or not.
+In order to evaluate whether detected groups belong to the respective group members, we used ground truth values that were manually recorded with predicted groups and measured them by using the IoU(Intersection Over Union) evaluation metric. The IoU is the intersection dived by the union, which is an evaluation metric that is used to measure the quality of data that is collected. In pedestrian, group intersection consists of correctly predicted members of the group, and the union is the combination of all the group members, either in the predicted group or in the truth value group.
+
 
 
 ## Project Execution
