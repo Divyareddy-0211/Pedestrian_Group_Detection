@@ -10,7 +10,7 @@
 ## Project Overview
 
 ## Project Execution
-Just check the paths of the CSV File and Groups.txt file in the code.
+check the paths of the CSV File and Groups.txt file in the code.
 Direct them to the respective files.
 
 We can execute the code in Any IDE directly. Just run the file.
