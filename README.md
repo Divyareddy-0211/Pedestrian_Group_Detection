@@ -8,6 +8,9 @@
 * [IOU Plot](#Iou-plot)
 
 ## Project Overview
+In general, pedestrians prefer to walk together as a group on roads in a shared space. In our project, we have focused on the movement of a group member from one position to another. 
+
+In order to know the positions of the pedestrians, we used the DBSCAN(Density-based spatial clustering of applications through noise) algorithm, which gives us similar movement patterns of pedestrians. The DBSCAN algorithm is based on co-existing time and Euclidean distance, which helps in determining the distance between pedestrians. Euclidean distance and co-existing time are two important parameters because they help us to know if two users belong to the same group or not.
 
 ## Project Execution
 check the paths of the CSV File and Groups.txt file in the code.
