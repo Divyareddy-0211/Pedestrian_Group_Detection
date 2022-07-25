@@ -98,7 +98,7 @@ Y
 ```
 
 
-#### Here we are applying our DBScan model
+#### Here we are applying our DBSCAN model
 ###### Here we are sending the data to our dbscan algorithm frame wise DBScan algorithm internally uses the Kneighbours algorithm with euclidean distances to 
 ###### group the agents with defined euclidean distance. 'eps' is the DBScan algorithm parameter which defines the euclidean distance.In the end we are adding all of ###### our results in the 'clusters' array coverting the clusters array to dataframe with index as the frame_id and the columns are the agents_id's.
 ```
@@ -139,8 +139,8 @@ Y
 
 ```
 
-#### Here we are caculating the coexisting time ratio for with a threshold we are defining the groups as a predicted groups. all the groups that are les than the threshold value are not considered.
-###### here we are checking for all certain threshold values from 0.1 t 1.0 a based on these threshold values we are defining the groups given by the DBScan algorithm  as  predicted groups. Our Groups dict has all the groups and number of times they are considered as a group. Now this value is going to be our Numerator. and the denominator is the union of the distinct steps these agents in that group has taken. (Referred fom the Research Paper provided).
+#### Here we are caculating the coexisting time ratio for with a threshold we are defining the groups as a predicted groups. All the groups that are less than the threshold value are not considered.
+###### here we are checking for all certain threshold values from 0.1 t 1.0 , based on these threshold values we are defining the groups given by the DBScan algorithm  as predicted groups. Our Groups dict has all the groups and number of times they are considered as a group. Now this value is going to be our Numerator and the denominator is the union of the distinct steps these agents in that group has taken. (Referred fom the Research Paper provided).
 ```
     rvalues =  np.arange(0.1, 1.01, 0.01)
     for rf in rvalues:
